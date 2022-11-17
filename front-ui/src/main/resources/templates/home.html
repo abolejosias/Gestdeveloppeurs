@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <!-- Mirrored from themicon.co/theme/angle/v4.5.5/static-html/app/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Nov 2019 11:50:38 GMT -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Bootstrap Admin App">
+        <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <title>GestDeveloppeurs</title><!-- =============== VENDOR STYLES ===============-->
+        <!-- FONT AWESOME-->
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/brands.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/regular.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/solid.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/fontawesome.css/}"><!-- SIMPLE LINE ICONS-->
+        <link rel="stylesheet" th:href="@{/vendor/simple-line-icons/css/simple-line-icons.css/}"><!-- =============== BOOTSTRAP STYLES ===============-->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.css/}" id="bscss"><!-- =============== APP STYLES ===============-->
+        <link rel="stylesheet" th:href="@{/css/app.css/}" id="maincss">
+    </head>
+    <style>
+        .title{
+            color : white;
+        }
+        #fontbody{
+            background-color: #030714;
+        }
+        .fontcard{
+            background-color: #6d6d6f; 
+        }
+
+
+    </style>
+
+    <body th:style="'background-image:url(' + @{/img/fondtest.png} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+        <div class="wrapper">
+            <div class="block-center col-8 ">
+                <!-- START card-->
+                <!--  <div class="card card-flat"> -->
+                <div class="card-flat">
+                    <!--<div class="card-header text-center bg-dark"><a href="#"><img class="block-center" src="img/logo.png" alt="Image"></a></div> -->
+                    <div class="card-header text-center"><a href="#"><img class="block-center" src="img/logo.png" alt="Image"></a></div>
+                    <div class="content-wrapper">
+                        <div class="container container-md py-4">
+                            <div class="text-center my-3 py-4">
+                                <div class="h2 text-bold title">Liste des Modules</div>
+                                <p class="title">Bienvenue sur votre plateforme de Gestion des Developpeurs</p>
+                            </div><!-- START PLAN TABLE-->
+                             <div class="row" th:if="${lstmodules.size() == 1}">
+                                <!-- PLAN-->
+                                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center" th:each="omodules : ${lstmodules}">
+
+                                    <div class="card b fontcard">
+                                        <div class="card-body text-center bg-gray-dark">
+                                            <div class="text-bold">Module</div>
+                                            <h3 class="my-3"><span class="text-l" th:text="${omodules.getStrDescription()}"></span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                        </div>
+                                        <div class="card-body text-center"><a class="btn btn-secondary btn-lg" th:href="${omodules.getStrLinkDefault()}">Choisir ce module</a></div>
+                                    </div>
+                                </div><!--  PLAN-->
+                            </div>
+                            
+                            <div class="row" th:if="${lstmodules.size() == 2}">
+                                <!-- PLAN-->
+                                <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center" th:each="omodules : ${lstmodules}">
+
+                                    <div class="card b fontcard">
+                                        <div class="card-body text-center bg-gray-dark">
+                                            <div class="text-bold">Module</div>
+                                            <h3 class="my-3"><span class="text-l" th:text="${omodules.getStrDescription()}"></span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                        </div>
+                                        <div class="card-body text-center"><a class="btn btn-secondary btn-lg" th:href="${omodules.getStrLinkDefault()}">Choisir ce module</a></div>
+                                    </div>
+                                </div><!-- PLAN-->
+                            </div>
+                             <div class="row" th:if="${lstmodules.size() == 3}">
+                                <!-- PLAN-->
+                                <div class="col-lg-4 col-md-4 col-sm-4 d-flex justify-content-center" th:each="omodules : ${lstmodules}">
+
+                                    <div class="card b fontcard">
+                                        <div class="card-body text-center bg-gray-dark">
+                                            <div class="text-bold">Module</div>
+                                            <h3 class="my-3"><span class="text-l" th:text="${omodules.getStrDescription()}"></span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                        </div>
+                                        <div class="card-body text-center"><a class="btn btn-secondary btn-lg" th:href="${omodules.getStrLinkDefault()}">Choisir ce module</a></div>
+                                    </div>
+                                </div><!-- PLAN-->
+                            </div>
+                            <div class="row" th:if="${lstmodules.size() == 4}">
+                                <!-- PLAN-->
+                                <div class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center" th:each="omodules : ${lstmodules}">
+
+                                    <div class="card b fontcard">
+                                        <div class="card-body text-center bg-gray-dark">
+                                            <div class="text-bold">Module</div>
+                                            <h3 class="my-3"><span class="text-l" th:text="${omodules.getStrDescription()}"></span></h3>
+                                        </div>
+                                        <div class="card-body">
+                                        </div>
+                                        <div class="card-body text-center"><a class="btn btn-secondary btn-lg" th:href="${omodules.getStrLinkDefault()}">Choisir ce module</a></div>
+                                    </div>
+                                </div><!-- PLAN-->
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END card-->
+                <div class="p-3 text-center"><span class="mr-2">&copy;</span><span>2022</span><span class="mr-2">-</span><span>GestDeveloppeurs</span><br><span>By Awa Abole josias</span></div>
+            </div>
+        </div><!-- =============== VENDOR SCRIPTS ===============-->
+        <!-- MODERNIZR-->
+        <script th:src="@{/vendor/modernizr/modernizr.custom.js/}"></script><!-- STORAGE API-->
+        <script th:src="@{/vendor/js-storage/js.storage.js/}"></script><!-- i18next-->
+        <script src="@{/vendor/screenfull/dist/screenfull.js/}"></script><!-- i18next-->
+        <script th:src="@{/vendor/i18next/i18next.js/}"></script>
+        <script th:src="@{/vendor/i18next-xhr-backend/i18nextXHRBackend.js/}"></script><!-- JQUERY-->
+        <script th:src="@{/vendor/jquery/dist/jquery.js/}"></script><!-- BOOTSTRAP-->
+        <script th:src="@{/vendor/popper.js/dist/umd/popper.js/}"></script>
+        <script th:src="@{/vendor/bootstrap/dist/js/bootstrap.js/}"></script><!-- PARSLEY-->
+        <script th:src="@{/vendor/parsleyjs/dist/parsley.js/}"></script><!-- =============== APP SCRIPTS ===============-->
+        <script th:src="@{/js/app.js/}"></script>
+    </body>
+
+
+    <!-- Mirrored from themicon.co/theme/angle/v4.5.5/static-html/app/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Nov 2019 11:50:38 GMT -->
+</html>

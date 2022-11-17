@@ -1,0 +1,50 @@
+<div th:fragment="editform"> 
+    <style>
+        .modal-header{
+            background-color: #e8e8e8;
+        }
+    </style>
+    <div class="modal fade" id="myeditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Editer un Privilege</h4><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <form method="post" action="#" id="edit-form" >
+                        <!-- START card-->
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <div class="card-title">Veuillez Modifier le Formulaire</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group"><label class="col-form-label">Libelle *</label><input class="form-control" type="text" name="name" id="name_edit" required></div>
+                                <div class="form-group"><label class="col-form-label">Description *</label><input class="form-control" id="description_edit" type="text" name="description" required></div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Niveau Privilege *</label>
+                                    <select class="form-control idprivilegelevel" id="select2-1-2" style="width: 100%">
+
+                                    </select>
+                                </div>
+                                  <input id="idprivilege" name="idprivilege" type="hidden">
+                            </div>
+                            <div class="card-footer">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                    </div>
+                                    <div class="float-right"><button class="btn btn-primary" id="editsavebtn" type="submit">Enregistrer</button></div>
+                                </div>
+                            </div>
+                            <div id="messageinfos_edit">
+                                
+                            </div>
+
+                        </div><!-- END card-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

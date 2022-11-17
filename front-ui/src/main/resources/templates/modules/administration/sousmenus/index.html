@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <!-- Mirrored from themicon.co/theme/angle/v4.5.5/static-html/app/dashboard_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Nov 2019 11:50:06 GMT -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Bootstrap Admin App">
+        <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+        <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico/}">
+        <title>Microservice App</title><!-- =============== VENDOR STYLES ===============-->
+        <!-- FONT AWESOME-->
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/brands.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/regular.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/solid.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40fortawesome/fontawesome-free/css/fontawesome.css/}"><!-- SIMPLE LINE ICONS-->
+        <link rel="stylesheet" th:href="@{/vendor/simple-line-icons/css/simple-line-icons.css/}"><!-- =============== BOOTSTRAP STYLES ===============-->
+        <!-- Datatables-->
+        <link rel="stylesheet" th:href="@{/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/datatables.net-keytable-bs/css/keyTable.bootstrap.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/datatables.net-responsive-bs/css/responsive.bootstrap.css/}">
+
+
+        <link rel="stylesheet" th:href="@{/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css/}"><!-- SLIDER CTRL-->
+        <link rel="stylesheet" th:href="@{/vendor/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css/}"><!-- SELECT2-->
+        <link rel="stylesheet" th:href="@{/vendor/select2/dist/css/select2.css/}">
+        <link rel="stylesheet" th:href="@{/vendor/%40ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.css/}"><!-- WYSIWYG-->
+        <link rel="stylesheet" th:href="@{/vendor/bootstrap-wysiwyg/css/style.css/}">
+        <!-- Loaders.css-->
+        <link rel="stylesheet" th:href="@{/vendor/loaders.css/loaders.css/}"><!-- Spinkit-->
+        <link rel="stylesheet" th:href="@{/vendor/spinkit/css/spinkit.css/}"><!-- =============== BOOTSTRAP STYLES ===============-->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.css/}" id="bscss"><!-- =============== APP STYLES ===============-->
+        <link rel="stylesheet" th:href="@{/css/app.css/}" id="maincss">
+    </head>
+    <script th:src="@{/vendor/jquery/dist/jquery.js/}"></script>
+    <script th:src="@{/script/modules/administration/sousmenus/script.js/}"></script>
+    <div th:insert="modules/administration/sousmenus/create :: addform"></div>
+    <!--<div th:insert="modules/administration/sousmenus/edit :: editform"></div>-->
+
+    <body>
+        <div class="wrapper">
+            <!-- top navbar-->
+            <header class="topnavbar-wrapper">
+                <!-- END Top Navbar-->
+                <div th:insert="page/headerpage :: header"></div>
+            </header><!-- sidebar-->
+            <aside class="aside-container">
+                <!-- START Sidebar (left)-->
+                <div class="aside-inner">
+
+                    <!--<div th:insert="page/menupage :: menu"></div>-->
+
+                    <!-- mettre le menu dynamique -->
+                    <nav class="sidebar" data-sidebar-anyclick-close="">
+                        <!-- START sidebar nav-->
+                        <ul class="sidebar-nav">
+                            <!-- START user info-->
+                            <li class="has-user-block">
+                                <div class="collapse" id="user-block">
+                                    <div class="item user-block">
+                                        <!-- User picture-->
+                                        <div class="user-block-picture">
+                                            <div class="user-block-status"><img class="img-thumbnail rounded-circle" th:src="@{/img/user/02.jpg/}" alt="Avatar" width="60" height="60">
+                                                <div class="circle bg-success circle-lg"></div>
+                                            </div>
+                                        </div><!-- Name and Job-->
+                                        <div class="user-block-info"><span class="user-block-name">Hello, Mike</span><span class="user-block-role">Designer</span></div>
+                                    </div>
+                                </div>
+                            </li><!-- END user info-->
+                            <!-- Iterates over all sidebar items-->
+
+                            <!-- lstmenusbeans -->
+                            <li class="nav-heading "><span data-localize="sidebar.heading.HEADER">Navigation Principal</span></li>
+
+                            <li class="" th:each="omenubeans : ${lstmenusbeans}"><a th:href="${omenubeans.getStrHref()}" th:title="${omenubeans.getStrDescription()}" data-toggle="collapse"><em th:class="${omenubeans.getStrClass()}"></em><span th:text="${omenubeans.getStrDescription()}"></span></a>
+                                <ul class="sidebar-nav sidebar-subnav collapse" th:id="${omenubeans.getStrValue()}">
+                                    <li class="sidebar-subnav-header" th:text="${omenubeans.getStrDescription()}"></li>
+                                    <li class=" "th:each="osousmenus : ${omenubeans.getLstSousmenuBean()}"><a th:href="${osousmenus.getStrUrl()}" title="Horizontal"><span th:text="${osousmenus.getStrDescription()}"></span></a></li>
+                                </ul>
+                            </li>
+                        </ul><!-- END sidebar nav-->
+                    </nav>
+
+                    <!-- fin -->
+
+
+                </div><!-- END Sidebar (left)-->
+            </aside><!-- offsidebar-->
+            <aside class="offsidebar d-none">
+                <!-- START Off Sidebar (right)-->
+                <div th:insert="page/configpage :: config"></div>
+                <!-- END Off Sidebar (right)-->
+            </aside><!-- Main section-->
+
+            <section class="section-container">
+                <!-- Page content-->
+                <div class="content-wrapper">
+                    <div class="content-heading">
+                        <div>Sous Menus</br>
+                            <small>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="welcome"><i class='fas fa-home' ></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Sous Menus</li>
+                                </ol>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+
+                        <!-- DATATABLE DEMO 2-->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><span th:each="oactionsToolbar : ${lstactionsToolbar}"><button th:class="${oactionsToolbar.getStrClass()}" th:data-toggle="${oactionsToolbar.getStrDatatoggle()}" th:data-target="${oactionsToolbar.getStrDatatarget()}" th:id="${oactionsToolbar.getStrId()}" type="button"><i th:class="${oactionsToolbar.getStrIcon()}"></i>&nbsp;&nbsp;<span th:text="${oactionsToolbar.getStrText()}"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                                <!-- <div class="text-sm">When displaying data in a DataTable, it can often be useful to your end users for them to have the ability to obtain the data from the DataTable, extracting it into a file for them to use locally. This can be done with either HTML5 based buttons or Flash buttons.</div>-->
+                            </div>
+                            <div class="card-header">
+                                <i class="text-muted">Legende : </i>
+                                <div class="pull-right" role="group" aria-label="Basic example" style='margin-bottom:0px'>
+                                    <span th:each="oactionsNotToolbar : ${lstactionsNotToolbar}"><button type="button" th:class="${oactionsNotToolbar.getStrClassLegende()}" ><i th:class="${oactionsNotToolbar.getStrIcon()}"></i>&nbsp;&nbsp;<span th:text="${oactionsNotToolbar.getStrText()}"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                </div>
+                            </div>
+
+
+                            <div class='clearfix'></div>
+
+                            <div class="card-body">
+                                <table class="table table-striped my-4 w-100" id="datatable2">
+                                    <thead>
+                                        <tr>
+                                            <th data-priority="1">Libelle</th>
+                                            <th>Description</th>
+                                            <th>Clef</th>
+                                            <th>Priorite</th>
+                                            <th>Menu</th>
+                                            <th>Url</th>
+                                            <th>Action</th>
+                                            <!--<th class="sort-numeric">Engine version</th>
+                                            <th class="sort-alpha" data-priority="2">CSS grade</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gradeX" th:each="osousmenu : ${sousmenuBeans}">
+                                            <td th:text="${osousmenu.getStrValue()}"></td>
+                                            <td th:text="${osousmenu.getStrDescription()}"></td>
+                                            <td th:text="${osousmenu.getPKey()}"></td>
+                                            <td th:text="${osousmenu.getIntPriority()}"></td>
+                                            <td th:text="${osousmenu.getMenuBean().getStrDescription()}"></td>
+                                            <td th:text="${osousmenu.getStrUrl()}"></td>
+                                            <td>
+                                                <span th:each="oactionsNotToolbars : ${lstactionsNotToolbar}"><button type="button" th:class='${oactionsNotToolbars.getStrClass()}'  th:data-toggle="${oactionsNotToolbars.getStrDatatoggle()}" th:data-target="${oactionsNotToolbars.getStrDatatarget()}" th:id="${oactionsNotToolbars.getStrId()}" th:value="${osousmenu.getId()}" th:data-placement="${oactionsNotToolbars.getStrDataplacement()}" th:title="${oactionsNotToolbars.getStrText()}"><i th:class="${oactionsNotToolbars.getStrIcon()}" ></i></button>
+                                                    &nbsp;&nbsp;</span>
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- DATATABLE DEMO 3-->
+
+                    </div>
+                </div>
+            </section><!-- Page footer-->
+
+
+
+
+            <footer class="footer-container">
+                <span> <div th:insert="page/footerpage :: footer"></div></span>
+            </footer>
+        </div><!-- =============== VENDOR SCRIPTS ===============-->
+        <!-- MODERNIZR-->
+        <script th:src="@{/vendor/modernizr/modernizr.custom.js/}"></script><!-- STORAGE API-->
+        <script th:src="@{/vendor/js-storage/js.storage.js/}"></script><!-- SCREENFULL-->
+        <script th:src="@{/vendor/screenfull/dist/screenfull.js/}"></script><!-- i18next-->
+        <script th:src="@{/vendor/i18next/i18next.js/}"></script>
+        <script th:src="@{/vendor/i18next-xhr-backend/i18nextXHRBackend.js/}"></script>
+
+        <script th:src="@{/vendor/popper.js/dist/umd/popper.js/}"></script>
+        <script th:src="@{/vendor/bootstrap/dist/js/bootstrap.js/}"></script><!-- =============== PAGE VENDOR SCRIPTS ===============-->
+        <!-- Datatables-->
+        <script th:src="@{/vendor/datatables.net/js/jquery.dataTables.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons/js/dataTables.buttons.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons/js/buttons.colVis.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons/js/buttons.flash.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons/js/buttons.html5.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-buttons/js/buttons.print.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-keytable/js/dataTables.keyTable.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-responsive/js/dataTables.responsive.js/}"></script>
+        <script th:src="@{/vendor/datatables.net-responsive-bs/js/responsive.bootstrap.js/}"></script>
+        <script th:src="@{/vendor/jszip/dist/jszip.js/}"></script>
+        <script th:src="@{/vendor/pdfmake/build/pdfmake.js/}"></script>
+        <script th:src="@{/vendor/pdfmake/build/vfs_fonts.js/}"></script><!-- =============== APP SCRIPTS ===============-->
+        <script th:src="@{/vendor/select2/dist/js/select2.full.js/}"></script>
+        <script th:src="@{/vendor/sweetalert/dist/sweetalert.min.js/}"></script>
+        <script th:src="@{/js/app.js/}"></script>
+    </body>
+
+
+    <!-- Mirrored from themicon.co/theme/angle/v4.5.5/static-html/app/dashboard_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Nov 2019 11:50:07 GMT -->
+</html>
